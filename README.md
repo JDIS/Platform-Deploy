@@ -12,4 +12,6 @@ In development, you will need to launch the both the [frontend](https://github.c
 
 You will then be able to interact with the platform using `localhost` on port `80` and the proxy will redirect your calls to the running services.
 
-Note: You must use `localhost` and not `127.0.0.1` on local otherwise the CAS auth won't accept the connexion.
+Notes: 
+- You must use `localhost` and not `127.0.0.1` on local otherwise the CAS auth won't accept the connexion.
+- (For linux) If you have a firewall, allow ports `3000` and `8080`, otherwise the proxy won't be able to forward the requests to the services running on the host.
