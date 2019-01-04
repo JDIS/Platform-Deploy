@@ -1,0 +1,66 @@
+version: "3"
+services:
+  nginx:
+    image: upstreamable/nginx-proxy:alpine-0.7.0
+    ports:
+      - "80:80"
+    volumes:
+      - /var/run/docker.sock:/tmp/docker.sock:ro 
+  database:
+    image: mongo
+    ports:
+      - 27017:27017
+    volumes:
+      - ./data/db:/data/db
+  cache:
+    image: redis
+    ports:
+      - 6379:6379
+  backend:
+    image: jdis/platform-backend
+    ports:
+     - 3000:3000
+    volumes:
+      - /var/run/docker.sock:/var/run/docker.sock
+    environment:
+      - VIRTUAL_HOST=jdis-ia.dinf.usherbrooke.ca,localhost
+      - VIRTUAL_PATH=/api
+    depends_on:
+      - nginx
+      - database
+      - cache
+  frontend:
+    image: jdis/platform-frontend
+    ports:
+      - 8080:8080
+    volumes:
+      - /var/run/docker.sock:/var/run/docker.sock
+    environment:
+      - VIRTUAL_HOST=jdis-ia.dinf.usherbrooke.ca,localhost
+      - VIRTUAL_PATH=/
+    depends_on:
+      - nginx
+      - database
+      - cache
+  python-env:
+    image: python:2.7.14
+  python3-env:
+    image: python:3.6.4
+  node-env:
+    image: node:9.3.0
+  ruby-env:
+    image: ruby:2.5.0
+  sage-env:
+    image: sagemath/sagemath
+  cpp-compiler:
+    build: ./compilers/cpp
+    image: cpp-compiler
+  csharp-compiler:
+    build: ./compilers/csharp
+    image: csharp-compiler
+  java-compiler:
+    build: ./compilers/java
+    image: java-compiler
+  rust-compiler:
+    build: ./compilers/rust
+    image: rust-compiler
