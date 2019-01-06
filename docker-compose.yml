@@ -43,13 +43,13 @@ services:
       - database
       - cache
   python-env:
-    image: python:2.7.14
+    image: python:2.7.15
   python3-env:
-    image: python:3.6.4
+    image: python:3.6.8
   node-env:
-    image: node:9.3.0
+    image: node:10.15.0
   ruby-env:
-    image: ruby:2.5.0
+    image: ruby:2.6.0
   sage-env:
     image: sagemath/sagemath
   cpp-compiler:

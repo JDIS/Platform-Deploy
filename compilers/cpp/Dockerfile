@@ -1,4 +1,4 @@
-FROM gcc:7.2.0
+FROM gcc:8.2.0
 
 WORKDIR /tmp
 

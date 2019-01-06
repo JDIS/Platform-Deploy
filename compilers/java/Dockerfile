@@ -1,4 +1,4 @@
-FROM openjdk:9.0.1-jdk
+FROM openjdk:11.0.1-jdk
 
 WORKDIR /tmp
 
