@@ -43,3 +43,6 @@ services:
   rust-compiler:
     build: ./compilers/rust
     image: rust-compiler
+  haskell-compiler:
+    build: ./compilers/haskell
+    image: haskell-compiler
