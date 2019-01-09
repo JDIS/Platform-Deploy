@@ -67,3 +67,6 @@ services:
   haskell-compiler:
     build: ./compilers/haskell
     image: haskell-compiler
+  fsharp-compiler:
+    build: ./compilers/fsharp
+    image: fsharp-compiler
