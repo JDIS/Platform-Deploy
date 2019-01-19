@@ -13,7 +13,7 @@ services:
       - ./nginx/html:/usr/share/nginx/html
       - /var/run/docker.sock:/tmp/docker.sock:ro
   nginx-ssl:
-    image: letsencrypt-nginx-proxy-companion:v1.10
+    image: jrcs/letsencrypt-nginx-proxy-companion:v1.10
     volumes:
       - ./nginx/certs:/etc/nginx/certs:rw
       - ./nginx/vhost.d:/etc/nginx/vhost.d
