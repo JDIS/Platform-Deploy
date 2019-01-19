@@ -41,6 +41,8 @@ services:
     environment:
       - VIRTUAL_HOST=jdis-ia.dinf.usherbrooke.ca,localhost
       - VIRTUAL_PATH=/api
+      - LETSENCRYPT_HOST=jdis-ia.dinf.usherbrooke.ca
+      - LETSENCRYPT_EMAIL=info@jdis.ca
       - HOST_PWD=${PWD}
     depends_on:
       - nginx
@@ -55,6 +57,8 @@ services:
     environment:
       - VIRTUAL_HOST=jdis-ia.dinf.usherbrooke.ca,localhost
       - VIRTUAL_PATH=/
+      - LETSENCRYPT_HOST=jdis-ia.dinf.usherbrooke.ca
+      - LETSENCRYPT_EMAIL=info@jdis.ca
     depends_on:
       - nginx
       - database
