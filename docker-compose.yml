@@ -56,7 +56,7 @@ services:
       - /var/run/docker.sock:/var/run/docker.sock
     environment:
       - VIRTUAL_HOST=jdis-ia.dinf.usherbrooke.ca,localhost
-      - VIRTUAL_PATH="~^(/|/admin|/leaderboard|/challenges|/logout)" # Dirty hack to make the reload work
+      - VIRTUAL_PATH=/
       - LETSENCRYPT_HOST=jdis-ia.dinf.usherbrooke.ca
       - LETSENCRYPT_EMAIL=info@jdis.ca
     depends_on:
